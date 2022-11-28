@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <title>DFM radio</title>
+    </head>
+    <body>
+        <script>
+            var script = document.createElement("script");
+            script.type = "text/javascript";
+          
+            script.addEventListener("load", function (event) {
+              const config = {
+                name: "Demo User",
+                meetingId: "diamondfm",
+                apiKey: "2b5e211f-d750-42b3-8c26-507200d5236b",
+          
+                containerId: null,
+          
+                micEnabled: true,
+                webcamEnabled: true,
+                participantCanToggleSelfWebcam: true,
+                participantCanToggleSelfMic: true,
+          
+                chatEnabled: true,
+                raiseHandEnabled: true,
+                screenShareEnabled: true,
+                
+              
+              
+  
+                joinScreen: {
+                       visible: true,
+                       title: "DFM UI RADIO",
+                       meetingUrl: "customURL.com",
+                },
+  
+                recordingEnabled: true,
+                       recordingWebhookUrl: "yourwebsite.com/callback",
+                       autoStartRecording: true,
+
+                       permissions: {
+
+                        //...
+                        toggleRecording: true,  // can toggle meeting record 
+                       },
+
+
+                       livestreamEnabled: {
+                  autoStart: true,
+
+                  outputs: [
+                    
+                    {url: "rtmp://x.rtmp.youtube.com/live2",
+
+                    streamKey: "t9e2-qmcz-50uv-7060-7mds",
+
+                 },
+
+                  ],
+                 },
+                      pin: {
+                        allowed: true,
+                        layout: "SPOTLIGHT",
+                      },
+
+
+                      whiteboardEnabled: true,
+                       debug: true,
+
+                      leftScreen: {
+                        actionButton: {
+                          label: "Video SDK",
+                          href: "http://videosdk.live/",
+                        },
+                      },
+
+                       permissions: {
+                        toggleRecording: true,
+                       askToJoin:false,
+                      toggleParticipantWebcam: false,
+                      toggleParticipantMic: false, 
+                      removeParticipant: true,
+                      endMeeting: true,
+                      drawOnWhiteboard: true,
+                      toggleWhiteboard: true,
+                       },
+          
+                /*
+          
+               Other Feature Properties
+                
+                */
+              };
+          
+              const meeting = new VideoSDKMeeting();
+              meeting.init(config);
+            });
+          
+            script.src =
+              "https://sdk.videosdk.live/rtc-js-prebuilt/0.3.23/rtc-js-prebuilt.js";
+            document.getElementsByTagName("head")[0].appendChild(script);
+          </script>
+    </body>
+</html>
